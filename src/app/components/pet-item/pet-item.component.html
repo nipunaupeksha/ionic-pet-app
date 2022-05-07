@@ -1,0 +1,8 @@
+<div class="pet">
+  <h3>
+    {{ pet.name }} - {{pet.age}}
+    <ion-icon *ngIf="icon=='trash-outline'" (click)="onDelete(pet)" color="{{colorInput}}" name="{{icon}}"></ion-icon>
+    <ion-icon *ngIf="icon=='refresh-circle-outline'" (click)="onUpdate(pet)" color="{{colorInput}}" name="{{icon}}"></ion-icon>
+  </h3>
+  <p>{{ pet.species }}</p>
+</div>

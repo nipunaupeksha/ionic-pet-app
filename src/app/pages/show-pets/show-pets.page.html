@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Show Pets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-pet-item *ngFor="let pet of pets" [pet]="pet" (onDeletePet)="deletePet(pet)" icon ="trash-outline" colorInput="danger"></app-pet-item>
+</ion-content>

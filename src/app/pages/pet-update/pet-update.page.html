@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pet APP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="div-flex">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-card-title">Pet APP</ion-card-title>
+      </ion-card-header>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="ion-form">
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating">Pet Name</ion-label>
+            <ion-input formControlName="name" name="petName" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="danger" *ngIf="form.get('name').touched && form.get('name').errors?.required">Name is
+              mandatory</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Pet Species</ion-label>
+            <ion-select formControlName="species" name="petSpecies" [interfaceOptions]="customAlertOptions" 
+              interface="alert" placeholder="Select One">
+              <ion-select-option value="Dog">Dog</ion-select-option>
+              <ion-select-option value="Cat">Cat</ion-select-option>
+              <ion-select-option value="Rabbit">Rabbit</ion-select-option>
+              <ion-select-option value="Guinea Pig">Guinea Pig</ion-select-option>
+              <ion-select-option value="Bird">Bird</ion-select-option>
+              <ion-select-option value="Snake">Snake</ion-select-option>
+              <ion-select-option value="Other">Other</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label color="danger" *ngIf="form.get('species').touched && form.get('species').errors?.required">
+              Species
+              is mandatory</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Pet Age</ion-label>
+            <ion-input formControlName="age" name="petAge" type="tel"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="danger" *ngIf="form.get('age').touched && form.get('age').errors?.required">Age is
+              mandatory
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Pet Sex</ion-label>
+            <ion-select formControlName="sex" name="petSex" [interfaceOptions]="customAlertOptions" interface="alert"
+              placeholder="Select One">
+              <ion-select-option value="Male">Male</ion-select-option>
+              <ion-select-option value="Female">Female</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label color="danger" *ngIf="form.get('sex').touched && form.get('sex').errors?.required">Phone No. is
+              mandatory</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Pet Owner Phone No.</ion-label>
+            <ion-input formControlName="phone" name="petOwner" type="tel"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="danger" *ngIf="form.get('phone').touched && form.get('phone').errors?.required">Phone No.
+              is
+              mandatory</ion-label>
+          </ion-item>
+
+        </ion-card-content>
+        <ion-button fill="clear" color="warning" type="submit" [disabled]="!form.valid">Add Pet</ion-button>
+      </form>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pet Search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-searchbar [(ngModel)]="searchField" placeholder="Type Pet Name to Search" (change)="search(searchField)"></ion-searchbar>
+<app-pet-item *ngFor="let pet of petList" [pet]="pet" (onDeletePet)="updatePet(pet)" colorInput="success" icon="refresh-circle-outline"></app-pet-item>
+
+</ion-content>
